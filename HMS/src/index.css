@@ -1,0 +1,160 @@
+.navbar {
+  background-color: #333; /* Background color */
+  padding: 10px; /* Padding */
+}
+
+.navbar-list {
+  list-style-type: none; /* Remove bullet points */
+  display: flex; /* Align items horizontally */
+  justify-content: space-around; /* Space items evenly */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.navbar-item a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 15px; /* Padding around links */
+  transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar-item a:hover {
+  background-color: #575757; /* Change background on hover */
+}
+
+
+@media (max-width: 600px) {
+  .navbar-list {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+}
+
+.card1{
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 300px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.card1 .card-image1{
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card1 .card-title1{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%, 20%);
+}
+
+.card2{
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 300px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.card2 .card-image2{
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card2 .card-title2{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%, 20%);
+}
+
+.card3{
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 300px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.card3 .card-image3{
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card3 .card-title3{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%, 20%);
+}
+
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 15px;
+}
+
+.mod{
+  text-align: center;
+}
+
+.foot{
+  text-align: center;
+}
