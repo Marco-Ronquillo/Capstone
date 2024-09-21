@@ -3,7 +3,7 @@ function Header(){
     return(
         <header>
             <h1>
-                Hospital Management System
+                Hospital Management System Core II
             </h1>
 
             <nav className="navbar">
