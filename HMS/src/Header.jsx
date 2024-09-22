@@ -1,24 +1,21 @@
-import { Link } from 'react-router-dom';
-function Header(){
-    return(
-        <header>
-            <h1>
-                Hospital Management System Core II
-            </h1>
+import React from "react";
+import './Header.css';
 
+function Header(){  
+    return(
+        <header className="header">            
+            <div className="logo">    Hospital Management System Core II     </div>
             <nav className="navbar">
                 <ul className="navbar-list">
                     <li className="navbar-item"><a href="/">Home</a></li>
                     <li className="navbar-item"><a href="/about">About</a></li>
                     <li className="navbar-item"><a href="/services">Services</a></li>
-                    <li className="navbar-item"><a href="/contact">Contact</a></li>
+                    <li className="navbar-item"><a href="/login">Login</a></li>
+                    <li className="navbar-item"><a href="/register">Register</a></li>
                 </ul>
-            </nav>
-
-            
-            
+            </nav>   
         </header>
-    )
-}
+    );
+};
 
 export default Header
