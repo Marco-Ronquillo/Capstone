@@ -7,7 +7,7 @@ function Header(){
             <div className="logo">    Hospital Management System Core II     </div>
             <nav className="navbar">
                 <ul className="navbar-list">
-                    <li className="navbar-item"><a href="/">Home</a></li>
+                    <li className="navbar-item"><a href="/home">Home</a></li>
                     <li className="navbar-item"><a href="/about">About</a></li>
                     <li className="navbar-item"><a href="/services">Services</a></li>
                     <li className="navbar-item"><a href="/login">Login</a></li>
