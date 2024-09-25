@@ -1,0 +1,28 @@
+.mod{
+    text-align: center;
+  }
+
+.card{
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    max-width: 300px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+.card .card-image{
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+.card .card-title{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: hsl(0, 0%, 20%);
+  }
+  

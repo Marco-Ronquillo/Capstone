@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../design/LoginForm.css';
 
 const LoginForm = () => {
     // State variables for form fields
@@ -27,6 +28,7 @@ const LoginForm = () => {
     return (
         <div className="login-form">
             <h2>Login</h2>
+            <hr></hr>
             {error && <p className="error">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -50,6 +52,9 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
+                <div className="noacc">
+                <p>Don't have an account? <a href="/register">Register</a></p>
+                </div>
             </form>
         </div>
     );
