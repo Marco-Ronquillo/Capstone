@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
+import '../design/LoginForm.css'; // Ensure this path is correct based on your project structure
 
 const LoginForm = () => {
-    // State variables for form fields
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -16,19 +15,18 @@ const LoginForm = () => {
             return;
         }
 
-        // Handle login logic here (e.g., API call)
         console.log('Email:', email);
         console.log('Password:', password);
 
-        // Clear error message
-        setError('');
+        setError(''); // Clear error message on successful submission
     };
 
     return (
         <div className="login-form">
-            <h2>Login</h2>
-            {error && <p className="error">{error}</p>}
             <form onSubmit={handleSubmit}>
+                <h2>Login</h2>
+                <hr />
+                {error && <p className="error">{error}</p>}
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input
@@ -50,6 +48,9 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
+                <div className="noacc">
+                    <p>Don't have an account? <a href="/register">Register</a></p>
+                </div>
             </form>
         </div>
     );

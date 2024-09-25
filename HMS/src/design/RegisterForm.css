@@ -1,0 +1,97 @@
+/* Full viewport height container to center the form */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  }
+  
+  /* Form title style */
+  .container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Styling the form itself */
+  .container form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Form group for spacing */
+  .container .regform-group {
+    margin-bottom: 20px;
+    padding-right: 30px;
+  }
+  
+  /* Input fields styling */
+  .container input[type="text"],
+  .container input[type="email"],
+  .container input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+  }
+  
+  /* Input focus style */
+  .container input[type="text"]:focus,
+  .container input[type="email"]:focus,
+  .container input[type="password"]:focus {
+    border-color: #74ebd5; /* Change this to your theme color */
+    outline: none;
+  }
+  
+  /* Button styling */
+  .container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #74ebd5; /* Change this to your theme color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .container button:hover {
+    background-color: #5dc2bb; /* Darker shade on hover */
+    transform: translateY(-2px);
+  }
+  
+  /* Styling for the "already have an account" text */
+  .container .alracc {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .container .alracc a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .container .alracc a:hover {
+    color: #0056b3; /* Darker shade on hover */
+  }
+  
+  /* Error message styling */
+  .container .error {
+    color: red;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
