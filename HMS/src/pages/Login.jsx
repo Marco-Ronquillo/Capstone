@@ -8,7 +8,6 @@ function Login(){
         <>
             <Header/>
             <LoginForm/>
-            <Footer/>
         </>
     );
 };

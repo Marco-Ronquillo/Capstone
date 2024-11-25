@@ -8,7 +8,6 @@ function Register(){
         <>
             <Header/>
             <RegisterForm/>
-            <Footer/>
         </>
     );
 };

@@ -1,67 +1,56 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #739855;
+  color: white;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+.header-content {
+  display: flex; /* Use flexbox for the logo and name */
+  align-items: center; /* Center items vertically */
 }
 
-.navigation ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+.headerlogo img {
+  max-width: 8%; /* Limit the width of the logo */
+  height: auto; /* Maintain aspect ratio */
 }
 
-.navigation li {
-    margin-left: 20px;
+.headername {
+  margin-left: 10px; /* Space between logo and name */
 }
 
-.navigation a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    transition: background-color 0.3s;
-}
-
-.navigation a:hover {
-    background-color: #575757;
-    border-radius: 4px;
+.headername p {
+  margin: 0; /* Remove default margin */
 }
 
 .navbar {
-    background-color: #333;
-    padding: 10px;
-  }
-  
+  background-color: #739855;
+  padding: 10px;
+}
+
+.navbar-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-item a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background 0.3s;
+}
+
+.navbar-item a:hover {
+  background-color: #52AB90;
+}
+
+@media (max-width: 600px) {
   .navbar-list {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .navbar-item a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background 0.3s;
-  }
-  
-  .navbar-item a:hover {
-    background-color: #575757;
-  }
-  
-  
-  @media (max-width: 600px) {
-    .navbar-list {
       flex-direction: column;
-    }
   }
+}

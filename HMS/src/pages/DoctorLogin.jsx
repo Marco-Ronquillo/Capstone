@@ -1,14 +1,15 @@
 import React from "react";
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
+import DoctorLoginForm from "../components/DoctorLoginForm.jsx";
 
-function About(){
+function Login(){
     return(
         <>
             <Header/>
-            <Footer/>
+            <DoctorLoginForm/>
         </>
     );
 };
 
-export default About
+export default Login

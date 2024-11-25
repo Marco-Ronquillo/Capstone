@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../design/LoginForm.css'; // Create this CSS file for styles
+import '../design/DoctorLoginForm.css'; // Create this CSS file for styles
 
-const LoginForm = () => {
+const DoctorLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -11,13 +11,13 @@ const LoginForm = () => {
         e.preventDefault();
         
         // Navigate to another page (e.g., dashboard) after "logging in"
-        navigate('/patientpage'); // Change this path to where you want to redirect
+        navigate('/doctorpage'); // Change this path to where you want to redirect
     };
 
     return (
         <div className="login-form">
             <form onSubmit={handleSubmit}>
-                <h2>Login as a Patient</h2>
+                <h2>Login as a Doctor</h2>
                 <div className="form-group">
                     <label htmlFor="email"><b>Email</b></label>
                     <input
@@ -39,15 +39,12 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
-                <div className="noacc">
-                    <p>Don't have an account? <a href="/register">Register</a></p>
-                </div>
-                <div className="logdoc">
-                    <a href="/doctorlogin">Login as a Doctor</a>
+                <div className="return">
+                    <a href="/login"><i>Return</i></a>
                 </div>
             </form>
         </div>
     );
 };
 
-export default LoginForm;
+export default DoctorLogin;

@@ -8,7 +8,6 @@ function Services(){
         <>
             <Header/>
             <Modules/>
-            <Footer/>
         </>
     );
 };

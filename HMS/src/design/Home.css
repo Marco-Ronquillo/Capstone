@@ -1,0 +1,84 @@
+.home-content {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    height: 100vh; /* Full viewport height */
+    flex-wrap: wrap; /* Allow wrapping of items */
+    opacity: 0.8; /* Use a decimal for opacity */
+}
+
+.homepic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Half viewport height */
+    flex-wrap: wrap;
+}
+
+.homepic img {
+    width: 90%; /* Set the width of the image */
+    max-width: 2000px; /* Maximum width to prevent it from getting too large */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Optional: removes any space below the image */
+    margin: 0 auto; /* Center the image horizontally if it's a block element */
+         }
+.description {
+    border-radius: 0px;
+    box-shadow: 10px 10px 10px 10px hsla(0, 0%, 0%, 0.1);
+    padding: 40px; /* Added padding for spacing */
+    margin: 10px; /* Margin around description */
+    text-align: center;
+    max-width: 3000px; /* Max width for description box */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+    height: 120px; /* Fixed height for description */
+    opacity: 100;
+}
+
+.description .descriptiontext {
+    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+    color: hsl(98, 5%, 31%);
+    min-height: 50px; /* Minimum height for text */
+    text-align: justify;
+    font-size: medium;
+    word-spacing :.20cm;
+    line-height:160%;
+
+}.accred-content {
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Adjust if needed */
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.accred {
+    display: flex;
+    flex-direction: row; /* Change to row if you want images side by side */
+}
+
+.accred .pic2,
+.accred .pic3 {
+    width: auto;
+    max-width: 120%;
+    max-height: 350px;
+    height: auto;
+    display: block;
+    margin: 3.4px;
+    columns: auto;
+}
+
+/*.accred .pic2,
+.accred .pic3 {
+    width: auto;  
+    max-width: 120%; 
+    max-height: 300px; 
+    height: auto; 
+    display: block; 
+    margin: 10px;
+    columns:auto;
+}*/

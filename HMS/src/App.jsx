@@ -2,7 +2,9 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home';
 import Services from './pages/Services';
-import About from './pages/About';
+import PatientDashboard from './pages/PatientDashboard';
+import DoctorLogin from './pages/DoctorLogin';
+import DoctorDashboard from './pages/DoctorDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -15,7 +17,9 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/services" element={<Services/>}/>
-            <Route path="/about" element={<About/>}/>
+            <Route path="/patientpage" element={<PatientDashboard/>}/>
+            <Route path="/doctorpage" element={<DoctorDashboard/>}/>
+            <Route path="/doctorlogin" element={<DoctorLogin/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
           </Routes>

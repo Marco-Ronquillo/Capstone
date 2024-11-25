@@ -1,11 +1,18 @@
 /* Full viewport height container to center the form */
+body .login-form{
+  background-color: #9fd4a3;
+}
+
 .login-form {
+  background-image: url('../assets/bldgnodado.jpeg');
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #74ebd5, #acb6e5);
 }
 
 /* Form title style */
@@ -19,7 +26,8 @@
 
 /* Styling the form itself */
 .login-form form {
-  background: white;
+  opacity: 95%;
+  background-color: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -29,6 +37,7 @@
 
 /* Form group for spacing */
 .login-form .form-group {
+
   margin-bottom: 20px;
   padding-right: 30px;
 }
@@ -63,7 +72,7 @@
 .login-form button {
   width: 100%;
   padding: 12px;
-  background-color: #74ebd5; /* Change this to your theme color */
+  background-color: #71cd79;
   color: white;
   border: none;
   border-radius: 8px;
@@ -73,7 +82,7 @@
 }
 
 .login-form button:hover {
-  background-color: #5dc2bb; /* Darker shade on hover */
+  background-color: #52AB90; /* Darker shade on hover */
   transform: translateY(-2px);
 }
 
@@ -91,4 +100,14 @@
 
 .login-form .noacc a:hover {
   color: #0056b3; /* Darker shade on hover */
+}
+
+.logdoc {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.logdoc a {
+  color: #007BFF;
+  transition: color 0.3s;
 }

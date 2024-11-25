@@ -1,0 +1,148 @@
+.dheader {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #739855;
+    color: white;
+    transition: margin-left 0.3s;
+}
+
+.dheader.open {
+    margin-left: 200px;
+}
+
+.dnavbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.dburger {
+    cursor: pointer;
+    background-color: #739855;
+    color: white;
+    font-size: 24px;
+}
+
+body .dsidebar {
+    background-color: #7cc882;
+}
+
+.dsidebar {
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+}
+
+.dsidenav-links {
+    flex: 1; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.dsidenav-links ul li button {
+    color: white;
+    background: none;
+    border: none;   
+    cursor: pointer;
+    font-size: 1.2em; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    padding: 13px; /* Adjust padding if needed */
+}
+
+.dsidebar.closed {
+    width: 10px; 
+}
+
+.dsidebar .imagecontainer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    height: 100vh;
+} 
+
+.dsidebar h1 {
+    text-align: center;
+    align-items: center;
+    place-items: center;
+    justify-items: center;
+}
+
+.dsidebar img {
+    max-width: 70%;
+    height: auto;
+}
+
+.dsidebar h2 {
+    color: white;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.dsidebar.closed h2 {
+    opacity: 0; 
+}
+
+.dsidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dsidebar ul li {
+    margin: 15px 0;
+}
+
+.dsidebar ul li a {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.dsidebar ul li button {
+    color: white;
+    background: none;
+    border: none;   
+    cursor: pointer;
+}
+
+.dsidebar.closed ul li a {
+    opacity: 0; 
+}
+
+.dlogout {
+    margin-left: auto; /* Pushes logout to the far right */
+    padding: 10px;
+}
+
+.dlogout-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.dlogout a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    transition: background 0.3s;
+}
+
+.dlogout a:hover {
+    background-color: #52AB90;
+}
+
+.dcontent {
+    padding: 20px;
+    flex: 1;
+}

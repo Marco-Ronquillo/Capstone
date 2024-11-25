@@ -1,0 +1,153 @@
+.pheader {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #739855;
+    color: white;
+    transition: margin-left 0.3s;
+}
+
+.pheader.open {
+    margin-left: 200px;
+}
+
+.pnavbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.pburger {
+    cursor: pointer;
+    background-color: #739855;
+    color: white;
+    font-size: 24px;
+}
+
+body .psidebar {
+    background-color: #7cc882;
+}
+.psidebar {
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+}
+
+.psidenav-links {
+    flex: 1; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.psidenav-links ul li button {
+    color: white;
+    background: none;
+    border: none;   
+    cursor: pointer;
+    font-size: 1.2em; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    padding: 13px; /* Adjust padding if needed */
+}
+
+.psidebar.closed {
+    width: 10px; 
+}
+
+.psidebar .imagecontainer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    height: 100vh;
+} 
+
+.psidebar h1 {
+    text-align: center;
+    align-items: center;
+    place-items: center;
+    justify-items: center;
+}
+
+.psidebar img {
+    max-width: 70%;
+    height: auto;
+}
+
+.psidebar h2 {
+    color: white;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.psidebar.closed h2 {
+    opacity: 0; 
+}
+
+.psidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.psidebar ul li {
+    margin: 15px 0;
+}
+
+.psidebar ul li a {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.psidebar ul li button {
+    color: white;
+    background: none;
+    border: none;   
+    cursor: pointer;
+}
+
+.psidebar.closed ul li a {
+    opacity: 0; 
+}
+
+.plogout {
+    margin-left: auto; /* Pushes logout to the far right */
+    padding: 10px;
+}
+
+.plogout-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.plogout a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    transition: background 0.3s;
+}
+
+.plogout a:hover {
+    background-color: #52AB90;
+}
+
+.pcontent {
+    transition: margin-left 0.3s;
+    padding: 20px;
+    margin-left: 0; /* Default when sidebar is closed */
+    flex: 1;
+}
+
+.pcontent.open {
+    margin-left: 200px; /* Adjust based on sidebar width */
+}
