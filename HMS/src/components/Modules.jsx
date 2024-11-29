@@ -23,7 +23,7 @@ function Modules() {
             <h2 className="cardtext">Laboratory & Diagnostic Services</h2>
             {expandedCard === 'lab' && (
               <div className="details">
-                <p>Details about Laboratory & Diagnostic Services.</p>
+                <p>Laboratory and diagnostic services are a critical component of modern healthcare, providing essential tools for the diagnosis, monitoring, and treatment of diseases. These services involve a wide range of tests and procedures that analyze bodily fluids, tissues, and cells to identify abnormalities and assess overall health.</p>
               </div>
             )}
           </div>
@@ -37,7 +37,7 @@ function Modules() {
             <h2 className="cardtext">Therapeutic Services</h2>
             {expandedCard === 'thera' && (
               <div className="details">
-                <p>Details about Therapeutic Services.</p>
+                <p>Therapeutic services are a broad range of treatments provided by licensed healthcare professionals to promote healing, rehabilitation, and overall well-being. These services often involve hands-on therapies, counseling, and other interventions to address physical, emotional, and cognitive challenges.</p>
               </div>
             )}
           </div>
@@ -51,7 +51,7 @@ function Modules() {
             <h2 className="cardtext">Pharmacy and Medication Services</h2>
             {expandedCard === 'phar' && (
               <div className="details">
-                <p>Details about Pharmacy and Medication Services.</p>
+                <p>This is the science and practice of discovering, producing, preparing, dispensing, reviewing and monitoring medications, aiming to ensure the safe, effective, and affordable use of medicines. It is a miscellaneous science as it links health sciences with pharmaceutical sciences and natural sciences.</p>
               </div>
             )}
           </div>

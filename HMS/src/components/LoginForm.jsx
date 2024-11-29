@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import '../design/LoginForm.css'; // Create this CSS file for styles
 
-const LoginForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+function LoginForm () {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        // Navigate to another page (e.g., dashboard) after "logging in"
-        navigate('/patientpage'); // Change this path to where you want to redirect
-    };
+    axios.post("http://localhost:3001/login", { email, password })
+        .then(result => {
+            if (result.data && result.data._id) { 
+                // Assuming the backend returns the user object on success
+                localStorage.setItem('patientId', result.data._id); // Store patient ID in localStorage
+                navigate("/patientpage"); // Navigate to the patient page
+            } else if (result.data === "The password is incorrect" || result.data === "No record existed") {
+                alert("You are not registered to this service");
+                navigate("/login");
+            } else {
+                alert("Login failed. Please try again.");
+            }
+        })
+        .catch(err => console.error(err));
+};
 
     return (
         <div className="login-form">

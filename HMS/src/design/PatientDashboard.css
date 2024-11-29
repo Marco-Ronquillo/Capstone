@@ -151,3 +151,239 @@ body .psidebar {
 .pcontent.open {
     margin-left: 200px; /* Adjust based on sidebar width */
 }
+
+.pmod {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    background-color: #9fd4a3;
+    transition: all 0.3s ease-in-out;
+}
+
+.pcard {
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    max-width: 300px;
+    flex:   0 0 300px; /* Initial size of the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    cursor: pointer;
+    height: 300px;
+    transition: all 0.3s ease;
+}
+
+
+  
+.pcard .pdetails {
+    display: none; /* Hide details by default */
+}
+  
+.pcard:hover {
+    background-color: #52ab90;
+    transform: translateY(-2px);
+}
+  
+.pcard .pcard-image {
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+}
+  
+.pcard .pcardtext {
+    font-family: Arial, sans-serif;
+    margin: 20px 0 0 0; /* Default margin for non-expanded cards */
+    text-align: center;
+    color: hsl(120, 31%, 75%);
+    min-height: 50px;
+    transition: margin 0.3s ease; /* Smooth transition when margin changes */
+}
+  
+.pcard.pexpanded .pcardtext {
+    margin: 10px 0 0 0; /* Reduce margin when the card is expanded */
+}
+  
+.pdetails {
+    margin-top: 20px;
+    color: hsl(0, 0%, 40%);
+    font-size: 14px;
+    text-align: center;
+    text-align: justify;
+}
+
+/* Profile Container */
+.pprofile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Profile Card */
+.pprofile-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Avatar */
+.pprofile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #4CAF50;
+}
+
+/* Details */
+.pprofile-details {
+    flex-grow: 1;
+    color: #333;
+}
+
+.pprofile-details h2 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.profile-details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Title */
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Form Styles */
+.patient-form label {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+    font-weight: bold;
+}
+
+.patient-form input,
+.patient-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.patient-form textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.patient-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 16px;
+}
+.patient-form select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+
+.form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-actions button:hover {
+    background-color: #45a049;
+}
+
+.form-actions button[type="button"] {
+    background-color: #ccc;
+}
+
+.form-actions button[type="button"]:hover {
+    background-color: #bbb;
+}
+
+.phartable h2 {
+    text-align: center;
+}
+
+.medicine-table-container {
+    margin-top: 20px;
+    overflow-x: auto; /* For responsiveness */
+}
+
+.medicine-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: rgba(20, 162, 20, 0.619);
+}
+
+.medicine-table th,
+.medicine-table td {
+    padding: 12px 15px;
+    border: 5px solid #ddd;
+}
+
+.medicine-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.medicine-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.medicine-table td {
+    text-align: center;
+}

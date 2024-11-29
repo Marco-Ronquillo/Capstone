@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import '../design/DoctorLoginForm.css'; // Create this CSS file for styles
 
@@ -8,11 +9,21 @@ const DoctorLogin = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        // Navigate to another page (e.g., dashboard) after "logging in"
-        navigate('/doctorpage'); // Change this path to where you want to redirect
-    };
+        e.preventDefault()
+        axios.post("http://localhost:3001/doctorlogin", { email, password })
+        .then(result => {
+            console.log(result)
+            if(result.data === "Success"){
+                navigate("/doctorpage")
+            }else{
+                navigate("/doctorlogin")
+                alert("You are not registered to this service")
+
+            }
+       
+        })
+        .catch(err => console.log(err))
+    }
 
     return (
         <div className="login-form">

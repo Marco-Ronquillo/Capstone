@@ -62,7 +62,7 @@ body .dsidebar {
     width: 10px; 
 }
 
-.dsidebar .imagecontainer {
+.dsidebar .dimagecontainer {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center;    /* Center vertically */
@@ -143,6 +143,223 @@ body .dsidebar {
 }
 
 .dcontent {
+    transition: margin-left 0.3s;
     padding: 20px;
+    margin-left: 0;
     flex: 1;
+}
+
+.dcontent.open {
+    margin-left: 200px;
+}
+
+/* Profile Container */
+.dprofile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Profile Card */
+.dprofile-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Avatar */
+.dprofile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #4CAF50;
+}
+
+/* Details */
+.dprofile-details {
+    flex-grow: 1;
+    color: #333;
+}
+
+.dprofile-details h2 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.profile-details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.dservices h2 {
+    text-align: center;
+}
+
+.dmod {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    background-color: #9fd4a3;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .dcard {
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    max-width: 300px;
+    flex: 0 0 300px; /* Initial size of the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    cursor: pointer;
+    height: 300px;
+    transition: all 0.3s ease;
+  }
+  
+  .dcard.expanded {
+    flex: 0 0 600px; /* Expanded size of the card */
+    height: 400px;
+  }
+  
+  .dcard.expanded .details {
+    display: block;
+  }
+  
+  .dcard .details {
+    display: none; /* Hide details by default */
+  }
+  
+  .dcard:hover {
+    background-color: #52ab90;
+    transform: translateY(-2px);
+  }
+  
+  .dcard .dcard-image {
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .dcard .dcardtext {
+    font-family: Arial, sans-serif;
+    margin: 20px 0 0 0; /* Default margin for non-expanded cards */
+    text-align: center;
+    color: hsl(120, 31%, 75%);
+    min-height: 50px;
+    transition: margin 0.3s ease; /* Smooth transition when margin changes */
+  }
+  
+  .dcard.expanded .dcardtext {
+    margin: 10px 0 0 0; /* Reduce margin when the card is expanded */
+  }
+  
+  .details {
+    margin-top: 20px;
+    color: hsl(0, 0%, 40%);
+    font-size: 14px;
+    text-align: justify;
+  }
+  
+.dexpanded-card {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dadd-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dadd-button:hover {
+    background-color: #45a049;
+}
+
+.dclose-button {
+    position: absolute;
+    top: 20px;
+    right: 2%;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 30%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dclose-button:hover {
+    background-color: #d32f2f;
+}
+
+.dpatienttable h2 {
+    text-align: center;
+}
+
+.dpatient-table-container {
+    margin-top: 20px;
+    overflow-x: auto; /* For responsiveness */
+}
+
+.dpatient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: rgba(20, 162, 20, 0.619);
+    text-align: center;
+}
+
+.dpatient-table th,
+.dpatient-table td {
+    padding: 12px 15px;
+    border: 5px solid #ddd;
+}
+
+.dpatient-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.dpatient-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.dpatient-table td {
+    text-align: center;
 }

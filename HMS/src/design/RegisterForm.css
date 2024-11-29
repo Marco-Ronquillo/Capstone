@@ -100,4 +100,15 @@ body .container {
     text-align: center;
     font-size: 14px;
   }
+
+  .container .button-group {
+    display: flex;
+    justify-content: space-between; /* Ensures buttons are spaced apart */
+    gap: 20px; /* Adds space between buttons */
+    margin-top: 15px; /* Adds space above the buttons */
+  }
   
+  /* Individual button styling remains the same */
+  .container button {
+    flex: 1; /* Optional: Make buttons equal width */
+  }

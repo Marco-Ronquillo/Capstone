@@ -1,0 +1,26 @@
+.aheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #739855;
+    color: white;
+}
+  
+.aheader-content {
+    display: flex; /* Use flexbox for the logo and name */
+    align-items: center; /* Center items vertically */
+}
+  
+.aheaderlogo img {
+    max-width: 8%; /* Limit the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+  
+.aheadername {
+    margin-left: 10px; /* Space between logo and name */
+}
+  
+.aheadername p {
+    margin: 0; /* Remove default margin */
+}
