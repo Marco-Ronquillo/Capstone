@@ -1,5 +1,5 @@
 body .container {
-  background-color: #9fd4a3;
+  background-color: #f5eedd;
 }
 .container {
     background-image: url('../assets/bldgnodado.jpeg');
@@ -10,7 +10,7 @@ body .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 89vh;
   }
   
   /* Form title style */

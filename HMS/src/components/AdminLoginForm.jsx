@@ -50,7 +50,7 @@ const AdminLoginForm = () => {
                 </div>
                 <button type="submit">Login</button>
                 <div className="return">
-                    <a href="/home"><i>Return</i></a>
+                    <a href="/login"><i>Return</i></a>
                 </div>
             </form>
         </div>

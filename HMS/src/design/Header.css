@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #739855;
+  background-color: #58855C;
   color: white;
 }
 
@@ -23,10 +23,13 @@
 
 .headername p {
   margin: 0; /* Remove default margin */
+  font-size:28px;
+  font-weight: bolder;
+  text-emphasis-position: 600px;
 }
 
 .navbar {
-  background-color: #739855;
+  background-color: #58855C;
   padding: 10px;
 }
 
@@ -46,7 +49,7 @@
 }
 
 .navbar-item a:hover {
-  background-color: #52AB90;
+  background-color: #50b368;
 }
 
 @media (max-width: 600px) {

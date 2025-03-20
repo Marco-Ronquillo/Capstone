@@ -227,18 +227,18 @@ function DoctorDashboard() {
                             <>
                                 <StyledWrapper>
                                     <div className="book">
-                                    <p><strong>Specialization:</strong> Physician</p>
-                                    <p><strong>Corporate Experience</strong> 1 year</p>
-                                    <p><strong>Contact:</strong> 09123456789</p>
-                                    <p><strong>Email:</strong> jabort@gmail.com</p>
-                                    <p><strong>Address:</strong> 12 Di Mahanap St. Brgy. What Are We, Quezon City</p>
+                                    <p><strong>Specialization:</strong> Therapist</p>
+                                    <p><strong>Corporate Experience</strong> 3 years</p>
+                                    <p><strong>Contact:</strong> 09123175148</p>
+                                    <p><strong>Email:</strong> gino@gmail.com</p>
+                                    <p><strong>Address:</strong> Sauyo, Quezon City</p>
                                             <div className="cover">
                                                 <img
                                                 className="doctor-avatar"
                                                 src="https://via.placeholder.com/150"
                                                 alt="Patient Avatar"
                                                 />
-                                                <p className="docname"><strong>Nhiel Stephen Curry</strong></p>
+                                                <p className="docname"><strong>Gino Abarro</strong></p>
                                             </div>  
                                     </div>
                                 </StyledWrapper>

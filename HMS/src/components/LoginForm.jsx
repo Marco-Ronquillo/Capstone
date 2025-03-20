@@ -55,8 +55,9 @@ function LoginForm () {
                 <div className="noacc">
                     <p>Don't have an account? <a href="/register">Register</a></p>
                 </div>
-                <div className="logdoc">
-                    <a href="/doctorlogin">Login as a Doctor</a>
+                <div className="log-options">
+                    <a href="/doctorlogin" className="log-option">Login as a Doctor</a>
+                    <a href="/admin" className="log-option">Login as an Admin</a>
                 </div>
             </form>
         </div>

@@ -1,6 +1,6 @@
 /* Full viewport height container to center the form */
 body .login-form{
-  background-color: #9fd4a3;
+  background-color: #f5eedd;
 }
 
 .login-form {
@@ -12,7 +12,7 @@ body .login-form{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 89vh;
 }
 
 /* Form title style */
@@ -102,12 +102,14 @@ body .login-form{
   color: #0056b3; /* Darker shade on hover */
 }
 
-.logdoc {
-    margin-top: 15px;
-    text-align: center;
+
+.log-options {
+  margin-top: 15px;
+  justify-content: space-between;
+  display: flex;
 }
 
-.logdoc a {
+.log-option {
   color: #007BFF;
   transition: color 0.3s;
 }
