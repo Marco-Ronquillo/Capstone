@@ -9,8 +9,9 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth'); // Assuming you already have auth routes
 const orderRoutes = require('./routes/order'); // Import the new order routes
 const helmet = require('helmet');
+const dotenv = require("dotenv")
 
-require('dotenv').config();
+dotenv.config();
 
 const app = express()
 const PORT = process.env.PORT || 5000;
@@ -25,18 +26,58 @@ const cspDirectives = {
     frameAncestors: ["'none'"],
     upgradeInsecureRequests: [],
   };
-  
+  const cspConfig = {
+    directives: {
+      defaultSrc: ["'none'"], // Block all by default
+      scriptSrc: ["'self'", "https://trusted-cdn.com"], // Allow local & trusted CDN scripts
+      styleSrc: ["'self'", "https://fonts.googleapis.com"], // Allow Google Fonts
+      imgSrc: ["'self'", "data:"], // Allow images from same origin & inline data
+      fontSrc: ["'self'", "https://fonts.gstatic.com"], // Allow Google Fonts
+      connectSrc: ["'self'", "https://api.yoursite.com"], // Allow API calls
+      objectSrc: ["'none'"], // Block plugins
+      frameAncestors: ["'none'"], // Prevent clickjacking
+      baseUri: ["'none'"], // Prevent base tag attacks
+      formAction: ["'self'"], // Restrict form submissions
+      reportUri: ["/csp-report"], // Log CSP violations
+    },
+    reportOnly: false, // Set to true for testing before enforcing
+};
+
   app.use(
     helmet.contentSecurityPolicy({
-      directives: cspDirectives,
-    })
+        directives: {
+            defaultSrc: ["'self'"], // Default policy for fetching resources
+            scriptSrc: ["'self'", "https://trusted.cdn.com"], // Allow scripts from self and trusted CDN
+            styleSrc: ["'self'", "https://trusted.cdn.com", "'unsafe-inline'"], // Allow styles from self, trusted CDN, and inline styles
+            imgSrc: ["'self'", "data:", "https://trusted.cdn.com"], // Allow images from self, data URIs, and trusted CDN
+            fontSrc: ["'self'", "https://trusted.cdn.com"], // Allow fonts from self and trusted CDN
+            connectSrc: ["'self'", "https://api.trusted.com"], // Allow connections to self and trusted API
+            frameSrc: ["'none'"], // Disallow iframes
+            objectSrc: ["'none'"], // Disallow plugins (e.g., Flash)
+            baseUri: ["'self'"], // Restrict base URL for relative URLs
+            formAction: ["'self'"], // Restrict form submissions to self
+            upgradeInsecureRequests: [], // Upgrade HTTP requests to HTTPS
+            blockAllMixedContent: [], // Block mixed content (HTTP on HTTPS pages)
+          },
+        })
   );
+app.use(helmet.contentSecurityPolicy(cspConfig));
 app.use(helmet());
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(cors())
 app.use('/api/auth', authRoutes); // Existing auth routes
+app.use('/api/orders', orderRoutes);
 app.use('/api', orderRoutes); 
+
+app.post('/csp-violation-report-endpoint', (req, res) => {
+    console.log('CSP Violation:', req.body);
+    res.status(204).end();
+  });
+  
+app.get("/", (req, res) => {
+    res.send("<h1>Hello, Secure MERN App!</h1>");
+  });
 
 mongoose.connect("mongodb+srv://marcoronquillo:ronquillomarco@cluster.i4nif.mongodb.net/patient");
 
