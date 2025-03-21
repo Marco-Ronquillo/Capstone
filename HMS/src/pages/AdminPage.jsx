@@ -12,6 +12,8 @@ function AdminPage () {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false); // For edit modal visibility
     const [currentPatient, setCurrentPatient] = useState(null); // For storing the selected patient's data
     const [isAddModalOpen, setIsAddModalOpen] = useState(false); 
+    const [orders, setOrders] = useState([]);
+
     const [newPatient, setNewPatient] = useState({ // For form data
         username: "",
         age: "",
@@ -47,6 +49,32 @@ function AdminPage () {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+    };
+
+    useEffect(() => {
+        if (view === 'orders') {
+            axios.get("http://localhost:3001/api/orders")
+                .then(response => {
+                    setOrders(response.data);
+                })
+                .catch(err => console.error(err));
+        }
+    }, [view]);
+
+    const handleAcceptOrder = (id) => {
+        axios.put(`http://localhost:3001/api/orders/${id}/accept`)
+            .then(response => {
+                setOrders(orders.map(order => order._id === id ? response.data : order));
+            })
+            .catch(err => console.error(err));
+    };
+    
+    const handleRejectOrder = (id) => {
+        axios.put(`http://localhost:3001/api/orders/${id}/reject`)
+            .then(response => {
+                setOrders(orders.map(order => order._id === id ? response.data : order));
+            })
+            .catch(err => console.error(err));
     };
 
     useEffect(() => {
@@ -254,6 +282,7 @@ function AdminPage () {
                             <li><button onClick={() => setView('pharmacy')}>Pharmacy</button></li>
                             <li><button onClick={() => setView('doctors')}>Doctors</button></li>
                             <li><button onClick={() => setView('patients')}>Patients</button></li>
+                            <li><button onClick={() => setView('orders')}>Orders</button></li>
                         </ul>
                     </div>
                 </div>
@@ -263,7 +292,7 @@ function AdminPage () {
             <div className={`acontent ${isOpen ? 'shifted' : ''}`}>
                 {view === 'home' && 
                     <div>
-                        Welcome Back Admin!
+                        Hello, Admin!
                     </div>
                 }
                 {view === 'profile' && 
@@ -713,6 +742,53 @@ function AdminPage () {
                         </div>
                     </div>
                 )}
+
+{view === 'orders' && (
+    <div className="aordertable">
+        <h2>Orders Management</h2>
+        <div className="aorder-table-container">
+            <table className="aorder-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Email</th>
+                        <th>Appointment Date</th>
+                        <th>Items</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {orders.map(order => (
+                        <tr key={order._id}>
+                            <td>{order.name}</td>
+                            <td>{order.number}</td>
+                            <td>{order.email}</td>
+                            <td>{order.appointmentDate}</td>
+                            <td>
+                                <ul>
+                                    {order.items.map((item, index) => (
+                                        <li key={index}>
+                                            {item.name} - {item.category} - {item.quantity}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </td>
+                            <td>
+                                <button className="aaccept-btn" onClick={() => handleAcceptOrder(order._id)}>
+                                    Accept
+                                </button>
+                                <button className="areject-btn" onClick={() => handleRejectOrder(order._id)}>
+                                    Reject
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+)}
 
             </div>
         </div>

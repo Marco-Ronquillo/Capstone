@@ -409,3 +409,59 @@ body .asidebar {
         padding: 15px;
     }
 }
+
+.aordertable h2 {
+    text-align: center;
+}
+
+.aorder-table-container {
+    margin-top: 20px;
+    overflow-x: auto; /* For responsiveness */
+}
+
+.aorder-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: rgba(20, 162, 20, 0.619);
+}
+
+.aorder-table th,
+.aorder-table td {
+    padding: 12px 15px;
+    border: 5px solid #ddd;
+}
+
+.aorder-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+}
+
+.aorder-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.aorder-table td {
+    text-align: center;
+}
+
+.aaccept-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.areject-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}

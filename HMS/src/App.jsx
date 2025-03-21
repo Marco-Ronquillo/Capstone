@@ -9,6 +9,7 @@ import DoctorLogin from './pages/DoctorLogin';
 import DoctorDashboard from './pages/DoctorDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import SMSAuth from "./components/SMSAuth";
 
 function App() {
   return(
