@@ -210,7 +210,6 @@ body .dsidebar {
     height: 100vh;
     padding-top: 20px;
     flex-wrap: wrap;
-    background-color: #9fd4a3;
     transition: all 0.3s ease-in-out;
   }
   

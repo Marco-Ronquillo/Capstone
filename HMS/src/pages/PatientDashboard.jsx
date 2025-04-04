@@ -61,10 +61,11 @@ function PatientDashboard() {
                     </div>
                     <div className="psidenav-links">
                         <ul>
-                            <li><button onClick={() => setView('home')}><b>Home</b></button></li>
+                            <li><button onClick={() => setView('history')}><b>Home</b></button></li>
                             <li><button onClick={() => setView('profile')}><b>Profile</b></button></li>
                             <li><button onClick={() => setView('services')}><b>Services</b></button></li>
-                            <li><button onClick={() => setView('history')}><b>Record History</b></button></li>
+                            <li><button onClick={() => setView('home')}><b>Pharmacy</b></button></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -74,7 +75,7 @@ function PatientDashboard() {
             <div className={`pcontent ${isOpen ? 'open' : ''}`}>
                 {view === 'home' && 
                         <div className="phartable">
-                            <h2>Pharmacy Medicines Overview</h2>
+                            <h2>Pharmacy Medicines Overview</h2>    
                             <div className="medicine-table-container">
                                 <table className="medicine-table">
                                     <thead>
@@ -114,7 +115,6 @@ function PatientDashboard() {
                                 <img
                                     className="pprofile-avatar"
                                     src="https://via.placeholder.com/150"
-                                    alt="Patient Avatar"
                                 />
                                 <div className="pprofile-details">
                                     <h2>Name: {patientData.username}</h2>
@@ -234,8 +234,8 @@ function PatientDashboard() {
                                 <thead>
                                     <tr>
                                         <th>Services</th>
-                                        <th>Schedule</th>
-                                        <th>Date Submittedr</th>
+                                        <th>Date Submitted</th>
+                                        <th>Appointment Date</th>
 
                                     </tr>
                                 </thead>
@@ -243,9 +243,9 @@ function PatientDashboard() {
                                     
                                     {/* Mock Data for Medicines */}
                                     {[
-                                        { name: "Laboratory Services", age: "12/2/2024", number: "11/28/2024" },
-                                        { name: "Laboratory Services", age: "12/2/2024", number: "11/28/2024" },
-                                        { name: "Therapeutic Services", age: "12/10/2024", number: "11/30/2024" },
+                                        { name: "Laboratory Services", age: "3/18/2024", number: "3/29/2024" },
+                                        { name: "Laboratory Services", age: "3/18/2024", number: "3/29/2024" },
+                                        { name: "Therapeutic Services", age: "3/19/2024", number: "3/30/2024" },
                                     ].map((medicine, index) => (
                                         <tr key={index}>
                                             <td>{medicine.name}</td>

@@ -178,6 +178,7 @@ function DoctorDashboard() {
                                 <li><button onClick={() => setView('patients')}><b>Patients</b></button></li>
                                 <li><button onClick={() => setView('profile')}>Profile</button></li>
                                 <li><button onClick={() => setView('services')}>Results</button></li>
+                                <li><button onClick={() => setView('appointment')}>Appointment</button></li>
                             </ul>
                         </div>
                     </div>
@@ -236,7 +237,6 @@ function DoctorDashboard() {
                                                 <img
                                                 className="doctor-avatar"
                                                 src="https://via.placeholder.com/150"
-                                                alt="Patient Avatar"
                                                 />
                                                 <p className="docname"><strong>Gino Abarro</strong></p>
                                             </div>  

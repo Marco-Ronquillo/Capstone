@@ -157,7 +157,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    z-index: 9999;
+    z-index: 100;
   }
 
   .Cart-button .text {
@@ -229,7 +229,7 @@
   left: 50%;
   height: 100%;
   transform: translateX(-50%);
-  z-index: -1000;
+  z-index: 100;
   background-repeat: no-repeat;
 }
 
@@ -308,7 +308,7 @@
   right: 20px;
   display: flex;
   gap: 10px; /* Adjust spacing between buttons */
-  z-index: 9999;
+  z-index: 100;
 }
 
 .track-order {
@@ -331,7 +331,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  z-index: 9999;
+  z-index: 10010;
 }
 
 .track-order .tooltip {
@@ -448,7 +448,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10004;
+  z-index: 10003;
   display: flex;
   flex-direction: column;
   overflow-x: auto;
@@ -743,7 +743,7 @@
   position: sticky; /* Make the header sticky */
   top: 0; /* Stick to the top */
   background: #f0f0f0; /* Match the background */
-  z-index: 1; /* Ensure it stays above the scrollable content */
+  z-index: 10005; /* Ensure it stays above the scrollable content */
   padding: 8px 0; /* Reduced padding */
 }
 
@@ -822,7 +822,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10010; /* Ensure it's above other modals */
+  z-index: 10050; /* Ensure it's above other modals */
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Prevent overflow */
@@ -918,4 +918,127 @@
 
 .trackorder-modal .trackorder-details li:last-child {
   border-bottom: none;
+}
+
+/* Direct Booking Summary Modal */
+.directbooking-summary-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Same width as order-summary-modal */
+  max-width: 600px; /* Limit maximum width */
+  height: 50vh; /* Slightly taller to accommodate details */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10005; /* Ensure it's above other modals */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.directbooking-summary-modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.directbooking-summary-modal .directbooking-close-summary {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Order Details Section */
+.directbooking-summary-modal .directbooking-order-details {
+  background: #f0f0f0; /* Light gray background */
+  padding: 10px 15px; /* Smaller padding */
+  border-radius: 10px;
+  margin-bottom: 15px; /* Less space between details and items */
+}
+
+.directbooking-summary-modal .directbooking-order-details .directbooking-info-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for details */
+  gap: 10px; /* Space between items */
+}
+
+.directbooking-summary-modal .directbooking-order-details .directbooking-info-group p {
+  margin: 0;
+  font-size: 14px; /* Smaller font size */
+  color: #555;
+  background: white; /* White background for each info */
+  padding: 8px; /* Smaller padding */
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Item Section */
+.directbooking-summary-modal .directbooking-order-items {
+  flex: 1; /* Take remaining space */
+  background: #f0f0f0; /* Light gray background */
+  margin-top: 3px;
+  padding: 10px 15px; /* Reduced top padding */
+  border-radius: 10px;
+  overflow: hidden; /* Prevent overflow */
+  display: flex;
+  flex-direction: column;
+}
+
+.directbooking-summary-modal .directbooking-order-items h3 {
+  margin-bottom: 0; /* Reduced margin */
+  margin-top: 0; /* Removed negative margin */
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Stick to the top */
+  background: #f0f0f0; /* Match the background */
+  z-index: 1; /* Ensure it stays above the scrollable content */
+  padding: 8px 0; /* Reduced padding */
+}
+
+.directbooking-summary-modal .directbooking-order-items .directbooking-cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.directbooking-summary-modal .directbooking-order-items .directbooking-cart-items li {
+  padding: 6px 10px; /* Reduced padding */
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+  background: white; /* White background for each item */
+  margin-bottom: 5px; /* Space between items */
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Confirm Order Button */
+.directbooking-summary-modal .directbooking-confirm-order-button {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 20px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.directbooking-summary-modal .directbooking-confirm-order-button:hover {
+  background-color: #218838; /* Darker green */
 }

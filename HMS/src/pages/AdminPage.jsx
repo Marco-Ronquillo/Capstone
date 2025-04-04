@@ -323,10 +323,6 @@ function AdminPage () {
     <div className="aphartable">
         <h2>Pharmacy Medicines Management</h2>
         <div className="amedicine-table-container">
-            {/* Add Medicine Button */}
-            <button className="acreate-btn" onClick={() => setIsAddMedicineModalOpen(true)}>
-                Add New Medicine
-            </button>
 
             {/* Medicines Table */}
             <table className="amedicine-table">
@@ -346,23 +342,6 @@ function AdminPage () {
                             <td>{medicine.type}</td>
                             <td>{medicine.stock}</td>
                             <td>{medicine.available}</td>
-                            <td>
-                                {/* Edit Button */}
-                                <button
-                                    className="aedit-btn"
-                                    onClick={() => { setCurrentMedicine(medicine); setIsEditMedicineModalOpen(true); }}
-                                >
-                                    Edit
-                                </button>
-
-                                {/* Delete Button */}
-                                <button
-                                    className="adelete-btn"
-                                    onClick={() => handleDeleteMedicine(medicine.id)}
-                                >
-                                    Delete
-                                </button>
-                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -451,10 +430,6 @@ function AdminPage () {
                     <div className="adoctortable">
                         <h2>Doctors Management</h2>
                         <div className="adoctor-table-container">
-                            {/* Add Doctor Button */}
-                            <button className="acreate-btn" onClick={() => setIsAddDoctorModalOpen(true)}>
-                                Add New Doctor
-                            </button>
 
                             {/* Doctors Table */}
                             <table className="adoctor-table">
@@ -480,20 +455,7 @@ function AdminPage () {
                                             <td>{doctor.address}</td>
                                             <td>{doctor.email}</td>
                                             <td>{doctor.password}</td>
-                                            <td>
-                                                {/* Edit Button */}
-                                                <button className="aedit-btn" onClick={() => { setCurrentDoctor(doctor); setIsEditDoctorModalOpen(true); }}>
-                                                    Edit
-                                                </button>
 
-                                                {/* Delete Button */}
-                                                <button
-                                                    className="adelete-btn"
-                                                    onClick={() => handleDeleteDoctor(doctor._id)}
-                                                >
-                                                    Delete
-                                                </button>
-                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -613,9 +575,6 @@ function AdminPage () {
                     <div className="apatienttable">
                         <h2>Patients Management</h2>
                         <div className="apatient-table-container">
-                            <button className="acreate-btn" onClick={() => setIsAddModalOpen(true)}>
-                                Add New Patient
-                            </button>
                             <table className="apatient-table">
                                 <thead>
                                     <tr>
@@ -641,17 +600,6 @@ function AdminPage () {
                                             <td>{patient.address}</td>
                                             <td>{patient.email}</td>
                                             <td>{patient.password}</td>
-                                            <td>
-                                                <button className="aedit-btn" onClick={() => { setCurrentPatient(patient); setIsEditModalOpen(true); }}>
-                                                    Edit
-                                                </button>
-                                                <button
-                                                    className="adelete-btn"
-                                                    onClick={() => handleDeletePatient(patient._id)}
-                                                >
-                                                    Delete
-                                                </button>
-                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>

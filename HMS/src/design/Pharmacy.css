@@ -1,0 +1,453 @@
+:root {
+    --gold: #D4AF37;
+    --gold-light: #E8D9A0;
+    --platinum: #E5E4E2;
+    --royal-blue: #002366;
+    --royal-blue-dark: #001A4D;
+    --ivory: #FFFFF0;
+    --ivory-dark: #F5F5DC;
+    --velvet: #800020;
+    --velvet-light: #A64253;
+    --charcoal: #36454F;
+}
+
+.pharmacy-container {
+    flex: 1;
+    padding: 70px 70px 70px 70px;
+    background-color: var(--ivory);
+}
+
+.pharmacy-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--royal-blue);
+    position: relative;
+    text-shadow: 2px 3px 6px rgba(0,0,0,0.08);
+    letter-spacing: 1px;
+}
+
+.pharmacy-header::after {
+    content: '';
+    display: block;
+    width: 220px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--velvet));
+    margin: 25px auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pharmacy-header-subtext {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--velvet-light);
+    margin-top: -50px;
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+/* Pharmacy Sections */
+.pharmacy-section {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(245,245,245,0.9));
+    padding: 60px;
+    border-radius: 25px;
+    margin-bottom: 80px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.pharmacy-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--gold), var(--velvet));
+}
+
+.pharmacy-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--velvet);
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.pharmacy-section h2::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--royal-blue));
+    margin: 20px auto 40px;
+    border-radius: 3px;
+}
+
+.pharmacy-section p {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+    margin-bottom: 30px;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.pharmacy-section .highlight {
+    color: var(--velvet);
+    font-weight: 600;
+}
+
+/* Pharmacy Services */
+.pharmacy-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.pharmacy-service-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+    border-top: 6px solid var(--gold);
+}
+
+.pharmacy-service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.pharmacy-service-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.pharmacy-service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.pharmacy-service-card:hover .pharmacy-service-image img {
+    transform: scale(1.05);
+}
+
+.pharmacy-service-content {
+    padding: 30px;
+}
+
+.pharmacy-service-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--royal-blue);
+    margin-bottom: 15px;
+}
+
+.pharmacy-service-content p {
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+}
+
+.pharmacy-service-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+/* Prescription Form */
+.pharmacy-prescription-form {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    margin: 60px 0;
+}
+
+.pharmacy-form-group {
+    margin-bottom: 30px;
+}
+
+.pharmacy-form-group label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--royal-blue);
+}
+
+.pharmacy-form-group input, 
+.pharmacy-form-group textarea,
+.pharmacy-form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.pharmacy-form-group input:focus, 
+.pharmacy-form-group textarea:focus {
+    border-color: var(--gold);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.pharmacy-form-row {
+    display: flex;
+    gap: 30px;
+}
+
+.pharmacy-form-row .pharmacy-form-group {
+    flex: 1;
+}
+
+.pharmacy-submit-btn {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 40px auto 0;
+    letter-spacing: 1px;
+}
+
+.pharmacy-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Product Showcase */
+.pharmacy-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.pharmacy-product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.pharmacy-product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.pharmacy-product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--velvet);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 2;
+}
+
+.pharmacy-product-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pharmacy-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.pharmacy-product-card:hover .pharmacy-product-image img {
+    transform: scale(1.1);
+}
+
+.pharmacy-product-content {
+    padding: 25px;
+}
+
+.pharmacy-product-category {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pharmacy-product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--royal-blue);
+    margin-bottom: 10px;
+}
+
+.pharmacy-product-description {
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.pharmacy-product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pharmacy-product-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--velvet);
+    font-weight: 600;
+}
+
+.pharmacy-add-to-cart {
+    background: var(--gold);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pharmacy-add-to-cart:hover {
+    background: var(--velvet);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+    .pharmacy-service-card {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 1200px) {
+    .pharmacy-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .pharmacy-sidebar {
+        width: 280px;
+        padding: 40px 0;
+    }
+    
+    .pharmacy-container {
+        padding: 60px 50px 60px 330px;
+    }
+    
+    .pharmacy-header {
+        font-size: 3.5rem;
+    }
+    
+    .pharmacy-section {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pharmacy-sidebar {
+        width: 240px;
+        padding: 30px 0;
+    }
+    
+    .pharmacy-container {
+        padding: 50px 40px 50px 280px;
+    }
+    
+    .pharmacy-header {
+        font-size: 3rem;
+    }
+    
+    .pharmacy-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .pharmacy-products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .pharmacy-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 30px 0;
+    }
+    
+    .pharmacy-container {
+        padding: 50px 30px;
+    }
+    
+    .pharmacy-sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .pharmacy-sidebar ul li {
+        padding: 15px 25px;
+    }
+    
+    .pharmacy-sidebar ul li:hover, .pharmacy-sidebar ul li.active {
+        padding-left: 25px;
+        border-left: none;
+        border-bottom: 3px solid var(--gold);
+    }
+    
+    .pharmacy-header {
+        font-size: 2.5rem;
+    }
+    
+    .pharmacy-section {
+        padding: 40px 30px;
+    }
+    
+    .pharmacy-products-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -9,7 +9,9 @@ import DoctorLogin from './pages/DoctorLogin';
 import DoctorDashboard from './pages/DoctorDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import SMSAuth from "./components/SMSAuth";
+import LandingPage from './pages/LandingPage';
+import Pharmacy from './pages/Pharmacy';
+import Service from './pages/Service';
 
 function App() {
   return(
@@ -17,7 +19,7 @@ function App() {
       <div>
         <BrowserRouter>
           <Routes>
-            <Route index element={<Services/>}/>
+            <Route index element={<LandingPage/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/services" element={<Services/>}/>
             <Route path="adminpage" element={<AdminPage/>}/>
@@ -27,6 +29,9 @@ function App() {
             <Route path="/doctorlogin" element={<DoctorLogin/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/landingpage" element={<LandingPage/>}/>
+            <Route path="/pharmacy" element={<Pharmacy/>}/>
+            <Route path="/service" element={<Service/>}/>
           </Routes>
         </BrowserRouter>
       </div>

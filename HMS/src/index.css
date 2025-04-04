@@ -1,3 +1,17 @@
+:root {
+    --gold: #D4AF37;
+    --gold-light: #E8D9A0;
+    --platinum: #E5E4E2;
+    --royal-blue: #002366;
+    --royal-blue-dark: #001A4D;
+    --ivory: #FFFFF0;
+    --ivory-dark: #F5F5DC;
+    --velvet: #800020;
+    --velvet-light: #A64253;
+    --charcoal: #36454F;
+}
+
+
 body {
-    background-color: #f5eedd;
+    margin: 0;
 }

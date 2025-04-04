@@ -24,6 +24,8 @@ function Services() {
     const [clickedItems, setClickedItems] = useState({});
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [isOrderSummaryOpen, setIsOrderSummaryOpen] = useState(false);
+    const [isDirectBookingSummaryOpen, setIsDirectBookingSummaryOpen] = useState(false);
+    const [directBookingItem, setDirectBookingItem] = useState(null);
     const [orderDetails, setOrderDetails] = useState({
         name: '',
         number: '',
@@ -58,26 +60,71 @@ function Services() {
         }
     };
 
-
+    const handleBookNow = (item, category, subcategory = null) => {
+        setDirectBookingItem({ name: item, category, subcategory });
+        setIsFormOpen(true);
+    };
 
     const handleInputChange = (e) => {
         setOrderDetails({ ...orderDetails, [e.target.name]: e.target.value });
     };
 
     const handlePlaceOrder = () => {
-        setIsCartOpen(false);
-        setIsFormOpen(true); // Show order form modal
+        setDirectBookingItem(null); // Reset directBookingItem
+        setIsFormOpen(true);
+        setIsCartOpen(false); // Close the cart modal
     };
 
     const handleCloseForm = () => {
-        setIsFormOpen(false);  
-        setIsCartOpen(true); // Reopen the cart modal
+        setIsFormOpen(false);
+        setDirectBookingItem(null); // Reset directBookingItem
+    };
+
+    const handleConfirmOrder = async () => {
+        try {
+            const orderData = {
+                name: orderDetails.name,
+                number: orderDetails.number,
+                email: orderDetails.email,
+                appointmentDate: orderDetails.appointmentDate,
+                items: directBookingItem ? [directBookingItem] : cart, // Use directBookingItem if it exists
+            };
+    
+            const response = await fetch('http://localhost:3001/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            });
+    
+            if (response.ok) {
+                alert('Order placed successfully!');
+                setOrderDetails({ name: '', number: '', email: '', appointmentDate: '' });
+                setCart([]); // Clear the cart
+                setDirectBookingItem(null); // Reset directBookingItem
+                setIsOrderSummaryOpen(false); // Close Order Summary modal
+                setIsDirectBookingSummaryOpen(false); // Close Order Details modal
+            } else {
+                const errorData = await response.json();
+                alert(`Failed to place order: ${errorData.message || 'Unknown error'}`);
+            }
+        } catch (error) {
+            console.error('Error placing order:', error);
+            alert('An error occurred. Please try again.');
+        }
     };
 
     const handleSubmitOrder = (e) => {
         e.preventDefault();
         setIsFormOpen(false);
-        setIsOrderSummaryOpen(true); // Open the order summary modal
+    
+        // If directBookingItem exists, it's a Book Now flow
+        if (directBookingItem) {
+            setIsDirectBookingSummaryOpen(true); // Show Order Details modal
+        } else {
+            setIsOrderSummaryOpen(true); // Show Order Summary modal
+        }
     };
     
     const addToCart = (item, category, subcategory = null) => {
@@ -143,7 +190,7 @@ function Services() {
         setTimeout(() => {
             setClickedItems(prev => {
                 const newState = { ...prev };
-                delete newState[itemToRemove.name]; // Reset button state when removed from cart
+                delete newState[itemToRemove.name];
                 return newState;
             });
         }, 500);
@@ -176,9 +223,9 @@ function Services() {
 
     const handleBack = () => {
         if (subCategory) {
-            setSubCategory(null); // Go back to Pharmacy Subcategories
+            setSubCategory(null);
         } else {
-            setActiveCategory(null); // Go back to Main Categories
+            setActiveCategory(null);
         }
     };
 
@@ -215,7 +262,7 @@ function Services() {
                                     ? "Already Added!"
                                     : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Blood Test", "Laboratory")}>
                                 Book now
                             </button>
                         </div>
@@ -237,7 +284,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Imaging Services", "Laboratory")}>
                                 Book now
                             </button>
                         </div>
@@ -258,7 +305,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Genetic Testing", "Laboratory")}>
                                 Book now
                             </button>
                         </div>
@@ -280,7 +327,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Urinalysis", "Laboratory")}>
                                 Book now
                             </button>
                         </div>
@@ -308,7 +355,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Physical Therapy", "Therapy")}>
                                 Book now
                             </button>
                         </div>
@@ -330,7 +377,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Occupational Therapy", "Therapy")}>
                                 Book now
                             </button>
                         </div>
@@ -352,7 +399,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Speech Therapy", "Therapy")}>
                                 Book now
                             </button>
                         </div>
@@ -374,7 +421,7 @@ function Services() {
                                 ? "Already Added!" 
                                 : "Add to Cart"}
                             </button>
-                            <button className="book-button">
+                            <button className="book-button" onClick={() => handleBookNow("Psychotherapy", "Therapy")}>
                                 Book now
                             </button>
                         </div>
@@ -400,9 +447,9 @@ function Services() {
                                         ? "Added!"
                                         : `Add to Cart ${getQuantity("Amoxicillin") > 0 ? `(${getQuantity("Amoxicillin")})` : ""}`}
                                 </button>
-                                <button className="book-button">
-                                    Buy now
-                                </button>
+                                <button className="book-button" onClick={() => handleBookNow("Amoxicillin", "Medicine", "Prescription")}>
+                                Buy now
+                            </button>
                             </div>
                         </div>
 
@@ -419,9 +466,9 @@ function Services() {
                                         ? "Added!"
                                         : `Add to Cart ${getQuantity("Metformin") > 0 ? `(${getQuantity("Metformin")})` : ""}`}
                                 </button>
-                                <button className="book-button">
-                                    Buy now
-                                </button>
+                                <button className="book-button" onClick={() => handleBookNow("Metformin", "Medicine", "Prescription")}>
+                                Buy now
+                            </button>
                             </div>
                         </div>
 
@@ -438,9 +485,9 @@ function Services() {
                                         ? "Added!"
                                         : `Add to Cart ${getQuantity("Lisinopril") > 0 ? `(${getQuantity("Lisinopril")})` : ""}`}
                                 </button>
-                                <button className="book-button">
-                                    Buy now
-                                </button>
+                                <button className="book-button" onClick={() => handleBookNow("Lisinopril", "Medicine", "Prescription")}>
+                                Buy now
+                            </button>
                             </div>
                         </div>
                     </>
@@ -463,9 +510,9 @@ function Services() {
                                         ? "Added!"
                                         : `Add to Cart ${getQuantity("Paracetamol") > 0 ? `(${getQuantity("Paracetamol")})` : ""}`}
                                 </button>
-                                <button className="book-button">
-                                    Buy now
-                                </button>
+                                <button className="book-button" onClick={() => handleBookNow("Paracetamol", "Medicine")}>
+                                Buy now
+                            </button>
                             </div>
                     </div>
 
@@ -482,9 +529,9 @@ function Services() {
                                         ? "Added!"
                                         : `Add to Cart ${getQuantity("Ibuprofen") > 0 ? `(${getQuantity("Ibuprofen")})` : ""}`}
                                 </button>
-                                <button className="book-button">
-                                    Buy now
-                                </button>
+                                <button className="book-button" onClick={() => handleBookNow("Ibuprofen", "Medicine")}>
+                                Buy now
+                            </button>
                             </div>
                     </div>
 
@@ -501,9 +548,9 @@ function Services() {
                                         ? "Added!"
                                         : `Add to Cart ${getQuantity("Antacids") > 0 ? `(${getQuantity("Antacids")})` : ""}`}
                                 </button>
-                                <button className="book-button">
-                                    Buy now
-                                </button>
+                                <button className="book-button" onClick={() => handleBookNow("Antacids", "Medicine")}>
+                                Buy now
+                            </button>
                             </div>
                     </div>
                 </>
@@ -571,130 +618,12 @@ function Services() {
                 </button>
             )}
 
-        <div className = "button-container">
-        <ul className="track-order">
-                <button className="track-order-button" onClick={() => setIsTrackOrderOpen(true)}>
-                    <span className="tooltip">Track Order</span>
-                    <svg
-                        viewBox="0 0 16 16"
-                        className="bi bi-search"
-                        height={24}
-                        width={24}
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="#fff"
-                    >
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001a1 1 0 0 0 .083.094l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.1-.08zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                </button>
-            </ul>
-            {isTrackOrderOpen && (
-                <>
-                    <div className="trackorder-modal-overlay" onClick={() => setIsTrackOrderOpen(false)}></div>
-                    <div className="trackorder-modal">
-                        <button className="trackorder-close-modal" onClick={() => setIsTrackOrderOpen(false)}>X</button>
-                        <h2>Track Your Order</h2>
-                        
-                        <input
-                            type="text"
-                            placeholder="Enter Order ID"
-                            value={orderId}
-                            onChange={(e) => setOrderId(e.target.value)}
-                        />
-                        <button className="trackorder-button" onClick={handleTrackOrder}>Track</button>
-
-                        {trackOrderError && <p className="trackorder-error">{trackOrderError}</p>}
-
-                        {trackedOrderDetails && (
-                            <div className="trackorder-order-details">
-                                <h3>Order Details</h3>
-                                <p><strong>Name:</strong> {trackedOrderDetails.name}</p>
-                                <p><strong>Email:</strong> {trackedOrderDetails.email}</p>
-                                <p><strong>Phone:</strong> {trackedOrderDetails.number}</p>
-                                <p><strong>Appointment Date:</strong> {trackedOrderDetails.appointmentDate}</p>
-                                <h4>Items:</h4>
-                                <ul>
-                                    {trackedOrderDetails.items.map((item, index) => (
-                                        <li key={index}>
-                                            {item.name} {item.quantity > 1 ? `(${item.quantity})` : ''}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-                </>
-            )}
-
-        {/* Cart Button Always Visible */}
-            <ul className="cart">
-                <button className="Cart-button" onClick={() => setIsCartOpen(true)}>
-                    <span className="tooltip">Health Cart</span>
-                        <svg
-                            viewBox="0 0 16 16"
-                            className="bi bi-cart-check"
-                            height={24}
-                            width={24}
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="#fff"
-                        >
-                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                        </svg>
-                </button>
-            </ul>
-        </div>
-
-        {isCartOpen && !isFormOpen && (
-    <>
-        <div className="cart-overlay" onClick={() => setIsCartOpen(false)}></div> 
-        <div className="cart-modal">
-            <button className="close-cart" onClick={() => setIsCartOpen(false)}>X</button>
-            <h2>Your Health Cart</h2>
-
-            {cart.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                <div className="cart-body">
-                    {sortedCategories.map((category) => (
-                        <div key={category} className="cart-column">
-                            <h3>{category}</h3>
-                            <ul className="cart-items">
-                                {groupedCart[category]
-                                    .sort((a, b) => a.name.localeCompare(b.name)) // Sort items alphabetically
-                                    .map((item) => (
-                                        <li key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <span>
-                                        {item.name} {item.quantity > 1 && <span style={{ marginLeft: '1px' }}>({item.quantity})</span>}
-                                    </span>
-                                    {(item.category === "Medicine" || item.category === "Medicine - Prescription") ? (
-                                        <span style={{ marginLeft: 'auto', display: 'flex', gap: '5px   ' }}>
-                                            <button onClick={() => increaseQuantity(item.name)}>+</button>
-                                            <button onClick={() => decreaseQuantity(item.name)}>-</button>
-                                        </span>
-                                    ) : (
-                                        <button className="remove-button" onClick={() => removeFromCart(item)}>
-                                            Remove
-                                        </button>
-                                    )}
-                                </li>
-                                    ))}
-                            </ul>
-                        </div>
-                    ))}
-                    <button className="place-order" onClick={handlePlaceOrder}> PLACE ORDER</button>
-                </div>
-            )}
-        </div>
-    </>
-)}
-
-
 {isFormOpen && (
     <>
         <div className="form-overlay" onClick={handleCloseForm}></div>
         <div className="form-modal">
             <button className="close-form" onClick={handleCloseForm}>X</button>
-            <h2>Order Details</h2>
+            <h2>Your Details</h2>
 
             <form onSubmit={handleSubmitOrder}>
                 <div className="form-group">
@@ -726,93 +655,71 @@ function Services() {
 )}
 
 {isOrderSummaryOpen && (
-  <>
-    <div className="form-overlay" onClick={() => setIsOrderSummaryOpen(false)}></div>
-    <div className="order-summary-modal">
-        <button className="close-summary" onClick={() => setIsOrderSummaryOpen(false)}>X</button>
-        <h2>Order Summary</h2>
-
-        {/* Order Details Section */}
-        <div className="order-details">
-        <div className="info-group">
-            <p><strong>Name:</strong> {orderDetails.name}</p>
-            <p><strong>Appointment Date:</strong> {orderDetails.appointmentDate}</p>
-            <p><strong>Phone:</strong> {orderDetails.number}</p>
-            <p><strong>Email:</strong> {orderDetails.email}</p>
-            
-        </div>
-    </div>
-
-    {/* Items Summary Section */}
-        <div className="order-items">
-            <h3>Items in Cart</h3>
-            <div className="cart-columns">
-            {sortedCategories.map((category) => (
-                <div key={category} className="cart-column">
-                <h4>{category}</h4>
-                <ul className="cart-items">
-                {groupedCart[category]
-                    .sort((a, b) => a.name.localeCompare(b.name)) // Sort items alphabetically
-                    .map((item) => (
-                    <li key={item.name}>
-                        {item.name} {item.quantity > 1 && <span>({item.quantity})</span>}
-                    </li>
-                    ))}
-                </ul>
+    <>
+        <div className="form-overlay" onClick={() => setIsOrderSummaryOpen(false)}></div>
+        <div className="order-summary-modal">
+            <button className="close-summary" onClick={() => setIsOrderSummaryOpen(false)}>X</button>
+            <h2>Order Summary</h2>
+            <div className="order-details">
+                <div className="info-group">
+                    <p><strong>Name:</strong> {orderDetails.name}</p>
+                    <p><strong>Appointment Date:</strong> {orderDetails.appointmentDate}</p>
+                    <p><strong>Phone:</strong> {orderDetails.number}</p>
+                    <p><strong>Email:</strong> {orderDetails.email}</p>
                 </div>
-            ))}
             </div>
-        </div>
-
-        {/* Confirm Order Button */}
-        <button 
-    className="confirm-order-button" 
-    onClick={async () => {
-        try {
-            // Prepare the order data
-            const orderData = {
-                name: orderDetails.name,
-                number: orderDetails.number,
-                email: orderDetails.email,
-                appointmentDate: orderDetails.appointmentDate,
-                items: cart,
-            };
-
-            console.log('Sending order data:', orderData); // Log the data being sent
-
-            // Send the order data to the backend
-            const response = await fetch('http://localhost:3001/api/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(orderData),
-            });
-
-            console.log('Response Status:', response.status); // Log the response status
-
-            if (response.ok) {
-                alert('Order placed successfully!');
-                setOrderDetails({ name: '', number: '', email: '', appointmentDate: '' });
-                setCart([]);
-                setIsOrderSummaryOpen(false);
-            } else {
-                const errorData = await response.json();
-                console.error('Backend Error:', errorData); // Log the error
-                alert(`Failed to place order: ${errorData.message || 'Unknown error'}`);
-            }
-        } catch (error) {
-            console.error('Error placing order:', error);
-            alert('An error occurred. Please try again.');
-        }
-    }}
->
-    Confirm Order
-</button>
+            <div className="order-items">
+                <h3>Items in Cart</h3>
+                <div className="cart-columns">
+                    {sortedCategories.map((category) => (
+                        <div key={category} className="cart-column">
+                            <h4>{category}</h4>
+                            <ul className="cart-items">
+                                {groupedCart[category]
+                                    .sort((a, b) => a.name.localeCompare(b.name))
+                                    .map((item) => (
+                                        <li key={item.name}>
+                                            {item.name} {item.quantity > 1 && <span>({item.quantity})</span>}
+                                        </li>
+                                    ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <button className="confirm-order-button" onClick={handleConfirmOrder}>
+                Confirm Order
+            </button>
         </div>
     </>
 )}
 
+{isDirectBookingSummaryOpen && (
+    <>
+        <div className="directbooking-form-overlay" onClick={() => setIsDirectBookingSummaryOpen(false)}></div>
+        <div className="directbooking-summary-modal">
+            <button className="directbooking-close-summary" onClick={() => setIsDirectBookingSummaryOpen(false)}>X</button>
+            <h2 className="directbooking-header">Order Details</h2>
+            <div className="directbooking-order-details">
+                <div className="directbooking-info-group">
+                    <p><strong>Name:</strong> {orderDetails.name}</p>
+                    <p><strong>Appointment Date:</strong> {orderDetails.appointmentDate}</p>
+                    <p><strong>Phone:</strong> {orderDetails.number}</p>
+                    <p><strong>Email:</strong> {orderDetails.email}</p>
+                </div>
+            </div>
+            <div className="directbooking-order-items">
+                <h3 className="directbooking-header">Item</h3>
+                <ul className="directbooking-cart-items">
+                    <li>{directBookingItem.name}</li>
+                </ul>
+            </div>
+            <button className="directbooking-confirm-order-button" onClick={handleConfirmOrder}>
+                Confirm Order
+            </button>
+        </div>
+    </>
+)}
             <div className="services">{renderCards()}</div>
         </>
     );

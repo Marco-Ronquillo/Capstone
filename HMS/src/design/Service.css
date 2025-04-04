@@ -1,0 +1,126 @@
+:root {
+    --gold: #D4AF37;
+    --gold-light: #E8D9A0;
+    --platinum: #E5E4E2;
+    --royal-blue: #002366;
+    --royal-blue-dark: #001A4D;
+    --ivory: #FFFFF0;
+    --ivory-dark: #F5F5DC;
+    --velvet: #800020;
+    --velvet-light: #A64253;
+    --charcoal: #36454F;
+}
+
+.service-container {
+    flex: 1;
+    padding: 70px 70px 70px 70px;
+    background-color: var(--ivory);
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+}
+
+
+.service-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,245,245,0.95));
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--gold);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensures spacing consistency */
+    min-height: 300px; /* Ensures all cards have the same height */
+    
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.service-card i {
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--royal-blue);
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.service-card h3::after {
+    content: "";
+    display: block;
+    width: 50px;  /* Adjust width as needed */
+    height: 3px;  /* Adjust thickness */
+    background-color: var(--gold); /* Use the correct color variable */
+    margin: 8px auto 0;  /* Centers the line */
+}
+
+.service-card p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+    .service-card {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .service-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 280px;
+        padding: 40px 0;
+    }
+    
+    .container {
+        padding: 60px 50px 60px 330px;
+    }
+    
+    .header {
+        font-size: 3.5rem;
+    }
+    
+    .pharmacy-section {
+        padding: 50px 40px;
+    }
+}

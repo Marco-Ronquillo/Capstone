@@ -1,84 +1,537 @@
-.home-content {
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center children horizontally */
-    align-items: center; /* Center children vertically */
-    height: 100vh; /* Full viewport height */
-    flex-wrap: wrap; /* Allow wrapping of items */
-    opacity: 0.8; /* Use a decimal for opacity */
+:root {
+    --gold: #D4AF37;
+    --gold-light: #E8D9A0;
+    --platinum: #E5E4E2;
+    --royal-blue: #002366;
+    --royal-blue-dark: #001A4D;
+    --ivory: #FFFFF0;
+    --ivory-dark: #F5F5DC;
+    --velvet: #800020;
+    --velvet-light: #A64253;
+    --charcoal: #36454F;
 }
 
-.homepic {
+
+.hcontainer {
+    flex: 1;
+    padding: 70px 70px 70px 70px;
+    background-color: var(--ivory);
+    
+}
+
+.hheader {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--royal-blue);
+    position: relative;
+    text-shadow: 2px 3px 6px rgba(0,0,0,0.08);
+    letter-spacing: 1px;
+}
+
+.hheader::after {
+    content: '';
+    display: block;
+    width: 220px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--velvet));
+    margin: 25px auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hheader-subtext {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--velvet-light);
+    margin-top: -50px;
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+/* About Us Sections */
+.habout-section {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(245,245,245,0.9));
+    padding: 60px;
+    border-radius: 25px;
+    margin-bottom: 80px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.habout-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--gold), var(--velvet));
+}
+
+.habout-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--velvet);
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.habout-section h2::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--royal-blue));
+    margin: 20px auto 40px;
+    border-radius: 3px;
+}
+
+.habout-section p {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+    margin-bottom: 30px;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.habout-section .hhighlight {
+    color: var(--velvet);
+    font-weight: 600;
+}
+
+/* Elegant Divider */
+.hdivider {
+    display: flex;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.hdivider-line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hdivider-icon {
+    margin: 0 20px;
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+/* Mission/Vision Cards */
+.hmission-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.hmission-card {
+    width: 38%;
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,245,245,0.95));
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--gold);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hmission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.hmission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.hmission-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--royal-blue);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.hmission-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.hmission-card p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+}
+
+.hmission-card .hdivider-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 0px;
+}
+
+/* Core Values */
+.hvalues-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 60px 0;
+}
+
+.hvalue-item {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.hvalue-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: white;
+    font-size: 2.5rem;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.hvalue-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--velvet);
+    margin-bottom: 15px;
+}
+
+.hvalue-item p {
+    font-size: 1.1rem;
+    color: var(--charcoal);
+}
+
+/* Leadership Team */
+.hteam {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.hteam-member {
+    width: 30%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.hteam-member:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.hteam-member-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hteam-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.hteam-member:hover img {
+    transform: scale(1.05);
+}
+
+.hteam-member-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 50%);
+}
+
+.hteam-member-info {
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.hteam-member-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--velvet);
+    margin-bottom: 8px;
+}
+
+.hteam-member-info .hposition {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--royal-blue);
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.hteam-member-info .hbio {
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+}
+
+.hteam-social {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 60vh; /* Half viewport height */
+    gap: 15px;
+}
+
+.hteam-social a {
+    color: var(--gold);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.hteam-social a:hover {
+    color: var(--velvet);
+    transform: translateY(-3px);
+}
+
+/* Statistics Section */
+.hstats-section {
+    background: linear-gradient(rgba(0, 35, 102, 0.9), rgba(0, 26, 77, 0.9)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 60px;
+    border-radius: 25px;
+    margin: 80px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+.hstats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--gold), var(--velvet));
+}
+
+.hstats-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    position: relative;
+    color: var(--platinum);
+}
+
+.hstats-section h2::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: var(--gold);
+    margin: 20px auto;
+}
+
+.hstats-container {
+    display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.homepic img {
-    width: 90%; /* Set the width of the image */
-    max-width: 2000px; /* Maximum width to prevent it from getting too large */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Optional: removes any space below the image */
-    margin: 0 auto; /* Center the image horizontally if it's a block element */
-         }
-.description {
-    border-radius: 0px;
-    box-shadow: 10px 10px 10px 10px hsla(0, 0%, 0%, 0.1);
-    padding: 40px; /* Added padding for spacing */
-    margin: 10px; /* Margin around description */
-    text-align: center;
-    max-width: 3000px; /* Max width for description box */
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center content vertically */
-    height: 120px; /* Fixed height for description */
-    opacity: 100;
+.hstat-item {
+    padding: 0 30px;
+    margin-bottom: 30px;
 }
 
-.description .descriptiontext {
-    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 0; /* Remove default margin */
-    text-align: center; /* Center text */
-    color: hsl(98, 5%, 31%);
-    min-height: 50px; /* Minimum height for text */
-    text-align: justify;
-    font-size: medium;
-    word-spacing :.20cm;
-    line-height:160%;
-
-}.accred-content {
-    padding: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh; /* Adjust if needed */
-    flex-wrap: wrap; /* Allow items to wrap */
+.hstat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 10px;
+    line-height: 1;
 }
 
-.accred {
-    display: flex;
-    flex-direction: row; /* Change to row if you want images side by side */
+.hstat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--platinum);
 }
 
-.accred .pic2,
-.accred .pic3 {
-    width: auto;
-    max-width: 120%;
-    max-height: 350px;
-    height: auto;
-    display: block;
-    margin: 3.4px;
-    columns: auto;
+/* Responsive Design */
+@media (max-width: 1440px) {
+    .hmission-card {
+        padding: 40px 30px;
+    }
+    
+    .hteam-member-image {
+        height: 300px;
+    }
 }
 
-/*.accred .pic2,
-.accred .pic3 {
-    width: auto;  
-    max-width: 120%; 
-    max-height: 300px; 
-    height: auto; 
-    display: block; 
-    margin: 10px;
-    columns:auto;
-}*/
+@media (max-width: 1200px) {
+    .hmission-card {
+        width: 100%;
+    }
+    
+    .hvalue-item {
+        width: 48%;
+    }
+    
+    .hteam-member {
+        width: 48%;
+    }
+}
+
+@media (max-width: 992px) {
+    .hsidebar {
+        width: 280px;
+        padding: 40px 0;
+    }
+    
+    .hcontainer {
+        padding: 60px 50px 60px 330px;
+    }
+    
+    .hheader {
+        font-size: 3.5rem;
+    }
+    
+    .habout-section {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hsidebar {
+        width: 240px;
+        padding: 30px 0;
+    }
+    
+    .hcontainer {
+        padding: 50px 40px 50px 280px;
+    }
+    
+    .hheader {
+        font-size: 3rem;
+    }
+    
+    .habout-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hvalue-item {
+        width: 100%;
+    }
+    
+    .hteam-member {
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hstats-section {
+        padding: 60px 40px;
+    }
+    
+    .hstat-item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .hsidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 30px 0;
+    }
+    
+    .hcontainer {
+        padding: 50px 30px;
+    }
+    
+    .hsidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hsidebar ul li {
+        padding: 15px 25px;
+    }
+    
+    .hsidebar ul li:hover, .sidebar ul li.active {
+        padding-left: 25px;
+        border-left: none;
+        border-bottom: 3px solid var(--gold);
+    }
+    
+    .hheader {
+        font-size: 2.5rem;
+    }
+    
+    .habout-section {
+        padding: 40px 30px;
+    }
+    
+    .hmission-card {
+        padding: 35px 25px;
+    }
+    
+    .hstat-item {
+        width: 100%;
+    }
+}

@@ -1,0 +1,492 @@
+:root {
+    --gold: #D4AF37;
+    --platinum: #E5E4E2;
+    --royal-blue: #002366;
+    --ivory: #FFFFF0;
+    --velvet: #800020;
+    --crystal: rgba(255,255,255,0.85);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Ultra-Luxurious Hero Section */
+.lphero {
+    height: 83vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--royal-blue), #001a4d);
+    overflow: hidden;
+}
+
+.lphero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.lphero-overlay {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    padding: 0 10px;
+}
+
+.lphero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+    margin-top: -50px;
+}
+
+.lphero p {
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.lpbtn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--royal-blue);
+    padding: 18px 50px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.lpbtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+}
+
+.lpbtn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lpbtn:hover::after {
+    opacity: 1;
+}
+
+/* Advisory Section with Crystal Effect */
+.lpadvisory {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    margin-top: 50px;
+}
+
+
+.lpadvisory-box {
+    background: var(--crystal);
+    padding: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.lpadvisory h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: -80px;
+    color: var(--royal-blue);
+    position: relative;
+}
+
+.lpadvisory h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--gold), var(--velvet));
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.lpadvisory h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--velvet);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.lpcontact-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.lpcontact-numbers p {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.lpcontact-numbers strong {
+    color: var(--royal-blue);
+    font-weight: 600;
+}
+
+/* About Section with Gold Accents */
+.lpabout {
+    padding: 50px 0;
+    background: linear-gradient(135deg, var(--ivory) 0%, #f5f5f0 100%);
+    position: relative;
+
+}
+
+.lpabout::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.lpabout-content {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    text-align: center;
+    position: relative;
+}
+
+.lpabout h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: var(--royal-blue);
+    position: relative;
+    text-align: center;
+}
+
+.lpabout h2::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, var(--gold), var(--velvet));
+    margin: 25px auto;
+    border-radius: 2px;
+}
+
+.lpabout p {
+    font-size: 1.3rem;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+
+.lpsearch-box {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.lpsearch-box input {
+    width: 100%;
+    padding: 20px 30px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    background: var(--crystal);
+}
+
+.lpsearch-box input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Services Section with Floating Cards */
+.lpservices {
+    padding: -100px 20px;
+    position: relative;
+}
+
+
+.lpservices h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 80px;
+    color: var(--royal-blue);
+    text-align: center;
+    position: relative;
+}
+
+.lpservices h2::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, var(--gold), var(--velvet));
+    margin: 25px auto;
+    border-radius: 2px;
+}
+
+.lpservice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.lpservice-card {
+    background: var(--crystal);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(5px);
+}
+
+.lpservice-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.lpservice-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--royal-blue), #001a4d);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gold);
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.lpservice-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--royal-blue);
+    position: relative;
+}
+
+.lpservice-card h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+    margin: 15px auto;
+}
+
+.lpservice-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* ID Card Section with Metallic Finish */
+.lpid-card {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    position: relative;
+}
+
+
+.lpcard {
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border-radius: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 50px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+
+
+.lpcard h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--royal-blue);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.lpcard h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.lpcard-content {
+    margin: 40px 0;
+    padding: 30px 0;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.lpcard-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--velvet);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.lpcard-details {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.lpcard-details p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 25px;
+}
+
+
+.lpcard-footer {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--royal-blue);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Premium Footer */
+footer {
+    background: linear-gradient(to right, var(--royal-blue), #001a4d);
+    color: var(--platinum);
+    text-align: center;
+    padding: 30px 30px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom right, transparent 49%, var(--royal-blue) 50%), 
+                linear-gradient(to bottom left, transparent 49%, var(--royal-blue) 50%);
+    background-size: 50px 50px;
+}
+
+footer p {
+    font-size: 1.1rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .lphero h1 {
+        font-size: 4rem;
+    }
+    
+    .lpservices h2, .about h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .lphero h1 {
+        font-size: 3rem;
+    }
+    
+    .lphero p {
+        font-size: 1.4rem;
+    }
+    
+    .lpservice-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lpcontact-numbers {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .lphero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .lphero p {
+        font-size: 1.2rem;
+    }
+    
+    .lpbtn {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    
+    .lpservices h2, .lpabout h2, .lpadvisory h2 {
+        font-size: 2.5rem;
+    }
+    
+    .lpservice-card, .lpadvisory-box, .card {
+        padding: 30px 20px;
+    }
+}
